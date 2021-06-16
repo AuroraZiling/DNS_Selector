@@ -1,0 +1,35 @@
+﻿<Window x:Class="DNS_Selector.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DNS_Selector"
+        mc:Ignorable="d"
+        Title="DNS Selector" Height="450" Width="509.6" Visibility="Visible" ResizeMode="NoResize">
+    <Grid Margin="0,0,3.2,0">
+        <Grid.Background>
+            <ImageBrush ImageSource="background.jpg"/>
+        </Grid.Background>
+        <Grid Height="395" VerticalAlignment="Top" Margin="10,10,18.6,0">
+            <Grid.Background>
+                <SolidColorBrush Color="White" Opacity="0.8"/>
+            </Grid.Background>
+            <Label Content="DNS 列表:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
+            <ListView x:Name="DNSList" HorizontalAlignment="Left" Height="338" Margin="10,40,0,0" VerticalAlignment="Top" Width="448" Background="{x:Null}" BorderBrush="#89000000" BorderThickness="2" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="描述" Width="230" DisplayMemberBinding="{Binding Description}"/>
+                        <GridViewColumn Header="DNS" Width="150" DisplayMemberBinding="{Binding Address}"/>
+                        <GridViewColumn Header="Ping" Width="65" DisplayMemberBinding="{Binding Ping}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Label Content="Version 1.0" Margin="384,9,305,0" VerticalAlignment="Top"/>
+            <Label Content="Version 1.0" HorizontalAlignment="Left" Margin="384,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.051,0.617" Height="25"/>
+            <Button x:Name="AutoChooseBtn" Content="自动选择" HorizontalAlignment="Left" Margin="81,8,0,0" VerticalAlignment="Top" Width="75" Height="28" Click="AutoChooseBtn_Click"/>
+            <Button x:Name="OpenDNSListBtn" Content="打开DNS本地列表" HorizontalAlignment="Left" Margin="161,8,0,0" VerticalAlignment="Top" Width="120" Height="28" Click="OpenDNSListBtn_Click"/>
+            <Button Content="设置" HorizontalAlignment="Left" Margin="286,8,0,0" VerticalAlignment="Top" Width="93" Height="27" IsEnabled="False"/>
+        </Grid>
+
+    </Grid>
+</Window>

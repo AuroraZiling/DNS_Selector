@@ -1,0 +1,35 @@
+﻿<Window x:Class="DNS_Selector.AutoChooseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DNS_Selector"
+        mc:Ignorable="d"
+        Title="DNS Selector - Auto Choose" Height="450" Width="509.6">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="background.jpg"/>
+        </Grid.Background>
+        <Grid HorizontalAlignment="Left" Height="386" Margin="10,10,0,0" VerticalAlignment="Top" Width="471">
+            <Grid.Background>
+                <SolidColorBrush Color="White" Opacity="0.8"/>
+            </Grid.Background>
+            <ListView x:Name="DNSList" HorizontalAlignment="Left" Height="304" Margin="10,10,0,0" VerticalAlignment="Top" Width="450" Background="{x:Null}" BorderBrush="#89000000" BorderThickness="2" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="描述" Width="230" DisplayMemberBinding="{Binding Description}"/>
+                        <GridViewColumn Header="DNS" Width="150" DisplayMemberBinding="{Binding Address}"/>
+                        <GridViewColumn Header="Ping" Width="65" DisplayMemberBinding="{Binding Ping}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Label x:Name="FastestLabel" Content="最快: 暂无" HorizontalAlignment="Left" Margin="10,319,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="SlowestLabel" Content="最慢: 暂无" HorizontalAlignment="Left" Margin="10,350,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="ChooseFastestBtn" Content="选择最快DNS" HorizontalAlignment="Left" Margin="276,350,0,0" VerticalAlignment="Top" Width="100" Height="26" Click="ChooseFastestBtn_Click"/>
+            <Button x:Name="TestAgainBtn" Content="重新测试" HorizontalAlignment="Left" Margin="276,319,0,0" VerticalAlignment="Top" Width="100" Height="26" Click="TestAgainBtn_Click"/>
+            <TextBox x:Name="MaxPingTextBox" HorizontalAlignment="Left" Height="26" Margin="381,350,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="80" PreviewTextInput="MaxPingTextBox_PreviewTextInput"/>
+            <Label Content="超时阈值(ms):" HorizontalAlignment="Left" Margin="381,319,0,0" VerticalAlignment="Top" InputMethod.IsInputMethodEnabled="False"/>
+        </Grid>
+
+    </Grid>
+</Window>
